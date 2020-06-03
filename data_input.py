@@ -223,7 +223,7 @@ append = process_arguments(sys.argv)
 
 ### Higher Order Values ###
 choice = pyip.inputMenu(["switch","fuse"], numbered=True)
-mfr = pyip.inputMenu(["Littelfuse","Philmore"], numbered=True)
+mfr = pyip.inputMenu(manufacturers, numbered=True)
 
 
 ### Format File ###
