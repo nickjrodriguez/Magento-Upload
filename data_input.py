@@ -83,7 +83,11 @@ def gather_attributes(attr_set, mfr, mfg_no):
  
 			print(values)
 			print("\n")
-			value = pyip.inputChoice(values, prompt=prompt, blank=True,strip=True)
+			new = pyip.inputYesNo(prompt="Would you like to add a custom value that is NOT in the list above?\n")
+			if new == 'no':
+				value = pyip.inputChoice(values, prompt=prompt, blank=True,strip=True)
+			else:
+				value = pyip.inputStr(prompt=prompt,blank=True,strip=True)
 			if value:
 				attrs[attr] = value
 			else:
