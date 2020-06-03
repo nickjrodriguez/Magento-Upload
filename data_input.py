@@ -52,7 +52,7 @@ short_descs = {"switch" : ["type", "action", "switch_current_rating","switch_vol
 tags = {"<p>":"</p>", "<ul>":"</ul>","<li>":"</li>"}
 
 
-manufacturers = ['Littelfuse','Philmore']
+manufacturers = ['Cole Hersee','Littelfuse','Philmore']
 needed_values = ["weight", "price"]
 
 def assemble_category(attr_set):
