@@ -83,8 +83,8 @@ def gather_attributes(attr_set, mfr, mfg_no):
  
 			print(values)
 			print("\n")
-			new = pyip.inputYesNo(prompt="Would you like to add a custom value that is NOT in the list above?\n")
-			if new == 'no':
+			new = pyip.inputYesNo(prompt="Would you like to add a custom value that is NOT in the list above?\n", blank=True)
+			if new == 'no' or not new:
 				value = pyip.inputChoice(values, prompt=prompt, blank=True,strip=True)
 			else:
 				value = pyip.inputStr(prompt=prompt,blank=True,strip=True)
@@ -183,11 +183,18 @@ def fill_row(row, sku, mfr, mfg_no, category, attr_set, needed_values):
 		prompt = "Enter the %s for item %s:\n" % (value, sku)
 		user_input = pyip.inputNum(prompt=prompt, blank=False, greaterThan=0.01, strip=True)
 		row[value] = user_input
-	image_prompt = "Select image type: "
+	
+	
 	print("\n***Entering Attributes for item: %s***\n" % sku)
 	attrs = gather_attributes(attr_set, mfr, mfg_no)
 	row["additional_attributes"] = assemble_attributes(attrs)
-	row["name"] = assemble_name(attrs, attr_set)
+	prompt = "Enter Name:\n(Blank will default to \"Title Mfr_No\"\n)"
+	name = pyip.inputStr(prompt=prompt, blank=True, strip=True)
+	if name == "":
+		row["name"] = assemble_name(attrs, attr_set)
+	else:
+		row["name"] = name
+	
 	row["description"] = assemble_description(attrs, attr_set)
 	print("Select the image extension type you are using: \n")
 	image_ext = pyip.inputMenu([".jpg", ".jpeg", ".png",".svg"], numbered=True)
