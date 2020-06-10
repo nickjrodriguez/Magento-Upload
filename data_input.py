@@ -106,9 +106,9 @@ def assemble_name(attrs, attr_set):
 	name+=assemble_short_description(attrs, attr_set)
 	return name
 
-def assemble_description(attrs, attr_set):
+def assemble_description(attrs, attr_set, sku):
 	print("\n*** Assembling Description ***\n")
-	base = "<p>Item # %s</p>"
+	base = "<p>Item # %s</p>" % sku
 	desc = base + "<p>" + assemble_short_description(attrs, attr_set) + "</p>"
 	bullets = ""
 	initial_response = 0
@@ -195,7 +195,7 @@ def fill_row(row, sku, mfr, mfg_no, category, attr_set, needed_values):
 	else:
 		row["name"] = name
 	
-	row["description"] = assemble_description(attrs, attr_set)
+	row["description"] = assemble_description(attrs, attr_set, sku)
 	print("Select the image extension type you are using: \n")
 	image_ext = pyip.inputMenu([".jpg", ".jpeg", ".png",".svg"], numbered=True)
 	row["base_image"] = mfg_no + image_ext
