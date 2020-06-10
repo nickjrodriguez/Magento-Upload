@@ -40,15 +40,15 @@ row = { "sku": "","store_view_code" : "","attribute_set_code" : "","product_type
 ### Variables ###
 attr_master = pandas.read_csv("attribute_master.csv")
 
-attribute_set = {"switch" : ["manufacturer","mfg_no","upc","action","actuator_type","contact_form","illumination","illumination_color", 
+attribute_set = {"Switch" : ["manufacturer","mfg_no","upc","action","actuator_type","contact_form","illumination","illumination_color", 
 							 "illumination_voltage", "lamp_type", "mounting_hole", "switch_current_rating", "switch_voltage_rating", 
 							 "termination_style", "type"]
 				}
-sub_category = {"switch" : ["Toggle", "Specialty", "Snap Action", "Rocker", "Push Button", "Auto-Marine"]}
-category = {"switch" : "Default Category/Parts/Electronic Components/Switches/"}
-descriptions = {"switch" : ""}
-names = {"switch" : ["manufacturer","mfg_no"]}
-short_descs = {"switch" : ["type", "action", "switch_current_rating","switch_voltage_rating","contact_form"]}
+sub_category = {"Switch" : ["Toggle", "Specialty", "Snap Action", "Rocker", "Push Button", "Auto-Marine"]}
+category = {"Switch" : "Default Category/Parts/Electronic Components/Switches/"}
+descriptions = {"Switch" : ""}
+names = {"Switch" : ["manufacturer","mfg_no"]}
+short_descs = {"Switch" : ["type", "action", "switch_current_rating","switch_voltage_rating","contact_form"]}
 tags = {"<p>":"</p>", "<ul>":"</ul>","<li>":"</li>"}
 
 
@@ -233,7 +233,7 @@ append = 0
 append = process_arguments(sys.argv)
 
 ### Higher Order Values ###
-choice = pyip.inputMenu(["switch","fuse"], numbered=True)
+choice = pyip.inputMenu(["Switch","fuse"], numbered=True)
 mfr = pyip.inputMenu(manufacturers, numbered=True)
 
 
