@@ -45,7 +45,7 @@ attribute_set = {"Switch" : ["manufacturer","mfg_no","upc","action","actuator_ty
 							 "termination_style", "type"]
 				}
 sub_category = {"Switch" : ["Toggle", "Specialty", "Snap Action", "Rocker", "Push Button", "Auto-Marine"]}
-category = {"Switch" : "Default Category/Parts/Electronic Components/Switches/"}
+category = {"Switch" : "Default Category/Parts/Switches/"}
 descriptions = {"Switch" : ""}
 names = {"Switch" : ["manufacturer","mfg_no"]}
 short_descs = {"Switch" : ["type", "action", "switch_current_rating","switch_voltage_rating","contact_form"]}
@@ -108,7 +108,7 @@ def assemble_name(attrs, attr_set):
 
 def assemble_description(attrs, attr_set, sku):
 	print("\n*** Assembling Description ***\n")
-	base = "<p>Item # %s</p>" % sku
+	base = "<p>Item # {}</p>".format(sku)
 	desc = base + "<p>" + assemble_short_description(attrs, attr_set) + "</p>"
 	bullets = ""
 	initial_response = 0
@@ -233,7 +233,7 @@ append = 0
 append = process_arguments(sys.argv)
 
 ### Higher Order Values ###
-choice = pyip.inputMenu(["Switch","fuse"], numbered=True)
+choice = pyip.inputMenu(["Switch","Fuse"], numbered=True)
 mfr = pyip.inputMenu(manufacturers, numbered=True)
 
 
