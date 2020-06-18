@@ -174,7 +174,7 @@ def manage_stock(row, sku):
 	else:
 		row["manage_stock"] = 0
 		row["qty"] = 1
-	print("Stock Updated")
+	print("Stock Updated!")
 	return
 
 
