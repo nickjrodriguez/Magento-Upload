@@ -198,10 +198,10 @@ def fill_row(row, sku, mfr, mfg_no, category, attr_set, needed_values):
 	row["description"] = assemble_description(attrs, attr_set, sku)
 	print("Select the image extension type you are using: \n")
 	image_ext = pyip.inputMenu([".jpg", ".jpeg", ".png",".svg"], numbered=True)
-	row["base_image"] = mfg_no + image_ext
-	row["thumbnail_image"] = mfg_no + image_ext
-	row["swatch_image"] = mfg_no + image_ext
-	row["small_image"] = mfg_no + image_ext
+	row["base_image"] = sku + image_ext
+	row["thumbnail_image"] = sku + image_ext
+	row["swatch_image"] = sku + image_ext
+	row["small_image"] = sku + image_ext
 	a_skus = assemble_associated_skus()
 	u_skus = assemble_upsell_skus()
 	row["associated_skus"] = a_skus
