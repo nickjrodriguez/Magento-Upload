@@ -171,7 +171,10 @@ def manage_stock(row, sku):
 		row["manage_stock"] = 1
 		qty = pyip.inputNum("Enter the Quantity for item: %s\n" % sku)
 		row["qty"] = qty
-		print("Stock Updated")
+	else:
+		row["manage_stock"] = 0
+		row["qty"] = 1
+	print("Stock Updated")
 	return
 
 
