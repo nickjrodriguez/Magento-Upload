@@ -225,7 +225,6 @@ def process_arguments(args):
 	if len(args) >= 2:
 		if is_csv(args[1]):
 			return pyip.inputYesNo(prompt="Would you like to append to %s?\n" % args[1], yesVal=1, noVal=0)
-		return 0
 	return 0
 
 ### Parse Command Line Arguments ###
