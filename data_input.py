@@ -70,6 +70,18 @@ def gather_attributes(attr_set, mfr, mfg_no):
 			attrs["manufacturer"] = mfr
 		elif attr == "mfg_no":
 			attrs["mfg_no"] = mfg_no
+		elif attr == "illumination":
+			prompt = "Enter the %s for item %s:\n" % (attr, curr_sku)
+			value = pyip.inputStr(prompt=prompt, blank=True,strip=True)
+			if value:
+				attrs[attr] = value
+				if value == "Non-Illuminated":
+					ill = False
+			else:
+				attrs[attr] = ""
+				ill = False
+		elif attr == "illumination_voltage" or attr == "illumination_color" or attr == "lamp_type" and not ill:
+			continue
 		elif attr == "upc":
 			prompt = "Enter the %s for item %s:\n" % (attr, curr_sku)
 			value = pyip.inputStr(prompt=prompt, blank=True,strip=True)
