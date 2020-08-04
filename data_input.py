@@ -77,6 +77,8 @@ def gather_attributes(attr_set, mfr, mfg_no):
 				attrs[attr] = value
 				if value == "Non-Illuminated":
 					ill = False
+				else:
+					ill = True
 			else:
 				attrs[attr] = ""
 				ill = False
